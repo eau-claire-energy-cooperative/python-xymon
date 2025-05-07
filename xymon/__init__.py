@@ -15,7 +15,7 @@ else:
     from urllib.parse import urlencode
 
 
-__version__ = '2.0.0'
+__version__ = '2.0.1'
 
 
 class Xymon(object):
@@ -140,7 +140,7 @@ class Xymon(object):
             try:
                 root = ElementTree.fromstring(status_xml)
                 statuses = defaultdict(dict)
-                for status_element in root.getiterator('ServerStatus'):
+                for status_element in root.iter('ServerStatus'):
                     hostname = status_element.find('Servername').text
                     service = status_element.find('Type').text
                     status = {
